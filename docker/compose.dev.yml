@@ -1,0 +1,11 @@
+services:
+  app:
+    image: catalyst-apim-service:dev
+    container_name: catalyst-apim-service
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile.dev
+      target: development
+    volumes:
+      - ../:/src
+    tty: true

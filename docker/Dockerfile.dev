@@ -1,0 +1,26 @@
+FROM python:3.11-slim AS base
+
+ARG USERNAME=appuser
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME
+
+USER $USERNAME
+WORKDIR /src
+
+
+FROM base AS development
+
+USER root
+RUN apt-get update
+RUN apt-get install -y git curl
+
+USER $USERNAME
+RUN curl -sSL https://install.python-poetry.org | python3 -
+ENV PATH="${PATH}:/home/${USERNAME}/.local/bin"
+RUN poetry config virtualenvs.in-project true
+
+# ENTRYPOINT ["poetry", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--reload"]
+
+# FROM base as prod

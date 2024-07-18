@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "catalyst-apim-service"
+version = "0.0.0"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.111.0"
+uvicorn = {extras = ["standard"], version = "^0.30.1"}
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.5.0"
+mypy = "^1.10.1"
+pytest = "^8.2.2"
+
+[tool.mypy]
+strict = true
+exclude = [".venv"]
+
+[tool.ruff]
+target-version = "py311" # sync with poetry python version
+
+[tool.ruff.lint]
+select = [
+    "E", # pycodestyle Error
+    "W", # pycodestyle Warning
+    "F", # Pyflakes
+    "I", # isort
+    "B", # flake8-bugbear
+]
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
