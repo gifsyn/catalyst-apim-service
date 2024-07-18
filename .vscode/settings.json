@@ -1,0 +1,11 @@
+{   
+    // ==== Ruff ====
+    "ruff.format.args": [
+        "--config=pyproject.toml" // Use the pyproject.toml file for configuration
+    ],
+    // ==== Mypy Type Checker ====
+    "mypy-type-checker.importStrategy": "fromEnvironment", // Use the mypy installed in the environment
+    "mypy-type-checker.args": [
+        "--config-file=pyproject.toml"
+    ]
+}
