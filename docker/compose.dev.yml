@@ -1,11 +1,14 @@
 services:
-  app:
+  catalyst-apim-service:
     image: catalyst-apim-service:dev
-    container_name: catalyst-apim-service
+    container_name: catalyst-apim-service-dev
     build:
       context: ..
-      dockerfile: ./docker/Dockerfile.dev
+      dockerfile: docker/Dockerfile.dev
       target: development
-    volumes:
-      - ../:/src
+    # volumes:
+    #   - ../:/src
+    #   - ~/.ssh:/home/appuser/.ssh:ro
+    #   - ~/.gnupg:/home/appuser/.gnupg:ro
+    user: "appuser"
     tty: true
