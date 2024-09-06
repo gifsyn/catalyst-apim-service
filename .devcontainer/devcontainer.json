@@ -1,0 +1,22 @@
+{
+  "name": "catalyst-apim-service",
+  "dockerComposeFile": ["../docker/compose.dev.yml"],
+  "service": "catalyst-apim-service",
+  "workspaceFolder": "/src",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "ms-python.mypy-type-checker",
+        "tamasfe.even-better-toml"
+      ],
+      "settings": {
+        "editor.renderWhitespace": "all",
+        "files.insertFinalNewline": true,
+        "explorer.compactFolders": false
+      }
+    }
+  }
+}
+  
