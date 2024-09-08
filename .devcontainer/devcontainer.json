@@ -1,7 +1,7 @@
 {
   "name": "catalyst-apim-service",
   "dockerComposeFile": ["../docker/compose.dev.yml"],
-  "service": "catalyst-apim-service",
+  "service": "app",
   "workspaceFolder": "/src",
   "customizations": {
     "vscode": {
