@@ -1,7 +1,6 @@
 from dotenv import load_dotenv
 from fastapi import FastAPI
 
-from app.api import azure_openai_service
 from app.schemas.health_check import HealthCheckResponse
 
 load_dotenv()
