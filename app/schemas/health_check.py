@@ -1,5 +1,11 @@
+from enum import Enum
+
 from pydantic import BaseModel
 
 
+class HealthCheckStatus(Enum):
+    READY = "ready"
+
+
 class HealthCheckResponse(BaseModel):
-    Status: str = "ready"
+    status: HealthCheckStatus = HealthCheckStatus.READY
