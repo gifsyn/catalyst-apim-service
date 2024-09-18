@@ -1,4 +1,9 @@
 {   
+    // ==== Python ====
+    "python.envFile": "",
+    "python.experiments.optOutFrom": [
+        "pythonTerminalEnvVarActivation"
+    ],
     // ==== Ruff ====
     "ruff.format.args": [
         "--config=pyproject.toml" // Use the pyproject.toml file for configuration
