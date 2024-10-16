@@ -1,6 +1,8 @@
 {
   "name": "catalyst-apim-service",
-  "dockerComposeFile": ["../docker/compose.dev.yml"],
+  "dockerComposeFile": [
+    "../docker/compose.dev.yml"
+  ],
   "service": "fastapi",
   "workspaceFolder": "/app",
   "mounts": [
@@ -27,7 +29,8 @@
         "bierner.github-markdown-preview",
         "donjayamanne.githistory",
         "mhutchie.git-graph",
-        "usernamehw.errorlens"
+        "usernamehw.errorlens",
+        "Gruntfuggly.todo-tree"
       ]
     }
   }
