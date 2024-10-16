@@ -1,27 +1,29 @@
-[tool.poetry]
-name = "Catalyst APIM Service"
+[project]
+name = "catalyst-apim-service"
 version = "0.0.1"
-package-mode = false
+description = ""
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115.0",
+    "sqlmodel>=0.0.22",
+    "uvicorn[standard]>=0.32.0",
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-fastapi = "^0.115.0"
-uvicorn = {extras = ["standard"], version = "^0.30.6"}
-sqlmodel = "^0.0.22"
-pydantic-settings = "^2.5.2"
-toml = "^0.10.2"
-
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.6.5"
-mypy = "^1.11.2"
-pytest = "^8.3.3"
+[tool.uv]
+package = false
+dev-dependencies = [
+    "mypy>=1.12.0",
+    "pre-commit>=4.0.1",
+    "pytest>=8.3.3",
+    "ruff>=0.6.9",
+]
 
 [tool.mypy]
 strict = true
-exclude = [".venv"]
 
 [tool.ruff]
-target-version = "py311" # sync with poetry python version
+target-version = "py311" # sync with python version
 line-length = 128
 
 [tool.ruff.lint]
