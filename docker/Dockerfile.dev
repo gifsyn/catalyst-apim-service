@@ -1,24 +1,39 @@
-# Python 3.11
 FROM python:3.11-bookworm AS base
 
-WORKDIR /src
+ENV PYTHONUNBUFFERED=true
 
-RUN apt-get update
-RUN apt-get install -y curl
+SHELL [ "/bin/bash", "-o", "pipefail", "-c" ]
+
+# hadolint ignore=DL3008,DL3009
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    curl \
+    ca-certificates
 
 ARG USERNAME=appuser
-RUN useradd --create-home $USERNAME
-
+RUN useradd --create-home $USERNAME --shell /bin/bash
 USER $USERNAME
 
-RUN curl -sSL https://install.python-poetry.org | python3 -
-ENV PATH="${PATH}:/home/${USERNAME}/.local/bin"
-RUN poetry config virtualenvs.in-project true
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+# hadolint ignore=SC2086
+RUN echo 'eval "$(uv generate-shell-completion bash)"' >> $HOME/.bashrc
+# hadolint ignore=SC2086,DL3059
+RUN echo 'eval "$(uvx --generate-shell-completion bash)"' >> $HOME/.bashrc
+
+ENV UV_LINK_MODE=copy \
+    UV_COMPILE_BYTECODE=true \
+    UV_PYTHON_DOWNLOADS=never
 
 # Development
 FROM base AS development
 
 USER root
+# hadolint ignore=DL3008,DL3015
 RUN apt-get install -y git
 
-# Production
+USER $USERNAME
+WORKDIR /app
+# TODO: uv sync
+
+# TODO: Test
+# FROM base AS test
