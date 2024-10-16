@@ -1,21 +1,34 @@
 {
   "name": "catalyst-apim-service",
   "dockerComposeFile": ["../docker/compose.dev.yml"],
-  "service": "app",
-  "workspaceFolder": "/src",
+  "service": "fastapi",
+  "workspaceFolder": "/app",
+  "mounts": [
+    "source=$HOME/.ssh,target=/home/appuser/.ssh,type=bind,readonly",
+    "source=$HOME/.gnupg,target=/home/appuser/.gnupg,type=bind,readonly"
+  ],
+  "features": {
+    "ghcr.io/dhoeric/features/hadolint:1": {}
+  },
   "customizations": {
     "vscode": {
       "extensions": [
+        "ms-azuretools.vscode-docker",
+        "exiasr.hadolint",
         "ms-python.python",
+        "ms-toolsai.jupyter",
+        "KevinRose.vsc-python-indent",
+        "njpwerner.autodocstring",
         "charliermarsh.ruff",
         "ms-python.mypy-type-checker",
-        "tamasfe.even-better-toml"
-      ],
-      "settings": {
-        "editor.renderWhitespace": "all",
-        "files.insertFinalNewline": true,
-        "explorer.compactFolders": false
-      }
+        "tamasfe.even-better-toml",
+        "redhat.vscode-yaml",
+        "yzhang.markdown-all-in-one",
+        "bierner.github-markdown-preview",
+        "donjayamanne.githistory",
+        "mhutchie.git-graph",
+        "usernamehw.errorlens"
+      ]
     }
   }
 }
