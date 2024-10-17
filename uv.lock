@@ -51,7 +51,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "fastapi", specifier = ">=0.115.0" },
-    { name = "openai" },
+    { name = "openai", specifier = ">=1.51.2" },
     { name = "pydantic-settings", specifier = ">=2.5.2" },
     { name = "sqlmodel", specifier = ">=0.0.22" },
     { name = "toml", specifier = ">=0.10.2" },
