@@ -5,8 +5,8 @@ description = ""
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "fastapi>=0.115.0",
-    "openai>=1.51.2",
+    "fastapi>=0.115.3",
+    "openai>=1.52.1",
     "pydantic-settings>=2.5.2",
     "sqlmodel>=0.0.22",
     "toml>=0.10.2",
@@ -16,10 +16,10 @@ dependencies = [
 [tool.uv]
 package = false
 dev-dependencies = [
-    "mypy>=1.12.0",
+    "mypy>=1.13.0",
     "pre-commit>=4.0.1",
     "pytest>=8.3.3",
-    "ruff>=0.6.9",
+    "ruff>=0.7.0",
 ]
 
 [tool.mypy]
