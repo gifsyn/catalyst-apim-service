@@ -12,25 +12,29 @@
   "features": {
     "ghcr.io/dhoeric/features/hadolint:1": {}
   },
+  "postCreateCommand": "uv sync --dev",
   "customizations": {
     "vscode": {
       "extensions": [
+        // Docker
         "ms-azuretools.vscode-docker",
         "exiasr.hadolint",
+        // Python
         "ms-python.python",
-        "ms-toolsai.jupyter",
         "KevinRose.vsc-python-indent",
         "njpwerner.autodocstring",
         "charliermarsh.ruff",
         "ms-python.mypy-type-checker",
+        // TOML
         "tamasfe.even-better-toml",
-        "redhat.vscode-yaml",
+        // Markdown
         "yzhang.markdown-all-in-one",
         "bierner.github-markdown-preview",
+        // Git
         "donjayamanne.githistory",
         "mhutchie.git-graph",
-        "usernamehw.errorlens",
-        "Gruntfuggly.todo-tree"
+        // Others
+        "usernamehw.errorlens"
       ]
     }
   }
