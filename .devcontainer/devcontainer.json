@@ -21,15 +21,13 @@
         "exiasr.hadolint",
         // Python
         "ms-python.python",
-        "KevinRose.vsc-python-indent",
-        "njpwerner.autodocstring",
         "charliermarsh.ruff",
         "ms-python.mypy-type-checker",
         // TOML
         "tamasfe.even-better-toml",
         // Markdown
-        "yzhang.markdown-all-in-one",
-        "bierner.github-markdown-preview",
+        // "yzhang.markdown-all-in-one",
+        // "bierner.github-markdown-preview",
         // Git
         "donjayamanne.githistory",
         "mhutchie.git-graph",
