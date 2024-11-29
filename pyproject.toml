@@ -1,14 +1,17 @@
 [project]
 name = "catalyst-apim-service"
 version = "0.0.1"
-description = ""
+description = "Azure OpenAI Service、Amazon Bedrock、Google Cloud Vertex AIの統合APIサービス"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.115.5",
     "uvicorn[standard]>=0.32.1",
+    "httpx>=0.27.2",
     "pydantic-settings>=2.5.2",
     "toml>=0.10.2",
+    "types-toml>=0.10.8.20240310",
+    "asgi-correlation-id>=4.3.4",
     "sqlmodel>=0.0.22",
 ]
 
@@ -16,8 +19,10 @@ dependencies = [
 package = false
 dev-dependencies = [
     "mypy>=1.13.0",
+    "pytest-cov>=6.0.0",
     "pytest>=8.3.3",
-    "ruff>=0.8.0",
+    "pytest-asyncio>=0.24.0",
+    "ruff>=0.8.1",
 ]
 
 [tool.mypy]
@@ -28,13 +33,52 @@ target-version = "py311" # sync with python version
 line-length = 128
 
 [tool.ruff.lint]
-select = [
-    "E", # pycodestyle Error
-    "W", # pycodestyle Warning
-    "F", # Pyflakes
-    "I", # isort
-    "B", # flake8-bugbear
+select = ["ALL"]
+ignore = [
+    "D1",    # pydocstyle D100-D107
+    "TD001", # invalid-todo-tag
+    "TD002", # missing-todo-author
+    "TD003", # missing-todo-link
+    "FIX",  # flake8-fixme FIX001-FIX004
+    # ignore conflicting lint rules
+    # ref: https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
+    "W191",   # tab-indentation
+    "E111",   # indentation-with-invalid-multiple
+    "E114",   # indentation-with-invalid-multiple-comment
+    "E117",   # over-indented
+    "D206",   # indent-with-spaces
+    "D300",   # triple-single-quotes
+    "Q000",   # bad-quotes-inline-string
+    "Q001",   # bad-quotes-multiline-string
+    "Q002",   # bad-quotes-docstring
+    "Q003",   # avoidable-escaped-quote
+    "COM812", # missing-trailing-comma
+    "COM819", # prohibited-trailing-comma
+    "ISC001", # single-line-implicit-string-concatenation
+    "ISC002", # multi-line-implicit-string-concatenation
+]
+fixable = ["ALL"]
+unfixable = [
+    "F401", # unused-import
+]
+
+[tool.ruff.lint.per-file-ignores]
+"temp/*" = ["ALL"]
+"tests/*" = [
+    "S101", # assert
 ]
 
 [tool.ruff.pydocstyle]
 convention = "google"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+omit = [
+    "*/__init__.py",
+    "temp/*",
+    "tests/*",
+]
