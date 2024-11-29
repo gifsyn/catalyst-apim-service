@@ -20,7 +20,7 @@ services:
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
-      POSTGRES_DB : "catalyst_apim"
+      POSTGRES_DB: "catalyst_apim"
     expose:
       - "5432"
 
