@@ -39,7 +39,7 @@ ignore = [
     "TD001", # invalid-todo-tag
     "TD002", # missing-todo-author
     "TD003", # missing-todo-link
-    "FIX",  # flake8-fixme FIX001-FIX004
+    "FIX",   # flake8-fixme FIX001-FIX004
     # ignore conflicting lint rules
     # ref: https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
     "W191",   # tab-indentation
@@ -76,9 +76,9 @@ testpaths = ["tests"]
 
 [tool.coverage.run]
 branch = true
-source = ["src"]
+source = ["tests"]
 omit = [
     "*/__init__.py",
-    "temp/*",
-    "tests/*",
+    "temp/*",        # NOTE: for VScode Extension "ms-python.python"
+    "tests/*",       # NOTE: for VScode Extension "ms-python.python"
 ]
