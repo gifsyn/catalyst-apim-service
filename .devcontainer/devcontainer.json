@@ -16,23 +16,24 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        // Docker
+        // ==== Docker ====
         "ms-azuretools.vscode-docker",
         "exiasr.hadolint",
-        // Python
+        // ==== Python ====
         "ms-python.python",
         "charliermarsh.ruff",
         "ms-python.mypy-type-checker",
-        // TOML
+        // ==== TOML ====
         "tamasfe.even-better-toml",
-        // Markdown
+        // ==== Markdown ====
         // "yzhang.markdown-all-in-one",
         // "bierner.github-markdown-preview",
-        // Git
+        // ==== Git ====
         "donjayamanne.githistory",
         "mhutchie.git-graph",
-        // Others
-        "usernamehw.errorlens"
+        // ==== Others ====
+        "usernamehw.errorlens",
+        "Gruntfuggly.todo-tree"
       ]
     }
   }
