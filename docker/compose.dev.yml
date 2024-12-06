@@ -35,3 +35,8 @@ services:
       - "5050:80"
     depends_on:
       - postgres
+
+  valkey:
+    image: valkey/valkey:8
+    expose:
+      - "6379"
