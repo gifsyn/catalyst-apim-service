@@ -13,6 +13,7 @@ dependencies = [
     "asgi-correlation-id>=4.3.4",
     "sqlmodel>=0.0.22",
     "valkey[libvalkey]>=6.0.2",
+    "dependency-injector>=4.44.0",
 ]
 
 [tool.uv]
